@@ -1,0 +1,15 @@
+version: "3.2"
+name: grpc_template
+services:
+  app:
+    ports:
+      - 5055:5055
+    container_name: app
+    networks:
+      - global_network
+    volumes:
+      - ./certs:/etc/ssl:w
+    build: .
+networks:
+  global_network:
+    external: true

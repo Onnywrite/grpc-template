@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package test;
+
+import "google/protobuf/empty.proto";
+
+option go_package = ".;gen";
+option csharp_namespace = "Onnywrite.Test";
+
+service Tester {
+  rpc Add(AddRequest) returns (AddResponse);
+  rpc GetError(google.protobuf.Empty) returns (google.protobuf.Empty);
+  rpc SayHello(Name) returns (Hello);
+}
+
+message Name { string name = 1; }
+message Hello { string message = 1; }
+
+message AddRequest {
+  string x = 1;
+  string y = 2;
+}
+
+message AddResponse { string result = 1; }

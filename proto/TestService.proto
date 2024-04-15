@@ -1,0 +1,21 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "GRPCTest";
+option go_package = ".;gen";
+
+import "google/protobuf/empty.proto";
+
+package test;
+
+service TestService{
+  rpc SayHello(HelloRequest) returns (HelloReply);
+  rpc SayException(google.protobuf.Empty) returns (google.protobuf.Empty);
+}
+
+message HelloReply{
+  string text = 2;
+}
+
+message HelloRequest{
+  string text = 1;
+}
