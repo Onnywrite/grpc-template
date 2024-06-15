@@ -8,7 +8,7 @@ services:
     networks:
       - global_network
     volumes:
-      - ./certs:/etc/ssl:w
+      - ./certs:/etc/ssl:ro
     build: .
 networks:
   global_network:
